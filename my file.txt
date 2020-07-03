@@ -1,0 +1,68 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@halmilton1 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+tantuch19
+/
+ansible-tower
+1
+02
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+ansible-tower/create-ec2.yml
+@tantuch19
+tantuch19 Update create-ec2.yml
+Latest commit b1b8057 10 days ago
+ History
+ 1 contributor
+22 lines (17 sloc)  489 Bytes
+  
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+  
+    - name: Provisioning EC2 instances
+      block:
+
+      - name: Provision instance(s)
+        ec2:
+          key_name: "{{ key_name }}"
+          group_id: "{{ sec_group }}"
+          image: "{{ image }}"
+          instance_type: "{{ instance_type }}"
+          region: "{{ region }}"
+          vpc_subnet_id: "{{ subnet_id }}"
+          assign_public_ip: yes
+          wait: true
+          count: 1
+          
+
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
